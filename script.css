@@ -136,6 +136,9 @@
 .DOMAIN {}
 .DONT {}
 .DOUBLE {}
+.DOWN {}
+.DOWNLOAD {}
+.DOWNSTREAM {}
 .DRIVER {}
 .DWORD {}
 .DYNAMIC {}
@@ -277,6 +280,8 @@
 .LOCATION {}
 .LOCK {}
 .LOG {}
+.LOGIN {}
+.LOGOUT {}
 .LONG {}
 .LOOP {}
 .LT {}
@@ -428,11 +433,13 @@
 .SEND {}
 .SERVER {}
 .SERVICE {}
+.SESSION {}
 .SET {}
 .SELECT {}
 .SHADOWS {}
 .SHARED {}
 .SHELL {}
+.SHIFT {}
 .SHORT {}
 .SHOULD {}
 .SHOW {}
@@ -455,6 +462,7 @@
 .STOP {}
 .STORAGE {}
 .STORE {}
+.STREAM {}
 .STRICT {}
 .STRING {}
 .STRUCTURE {}
@@ -501,8 +509,12 @@
 .UNION {}
 .UNLOAD {}
 .UNLOCK {}
+.UNSHIFT {}
 .UNTIL {}
+.UP {}
 .UPDATE {}
+.UPLOAD {}
+.UPSTREAM {}
 .URI {}
 .URL {}
 .USHORT{}
