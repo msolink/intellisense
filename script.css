@@ -78,6 +78,7 @@
 .CONNECT {}
 .CONSOLE {}
 .CONST {}
+.CONTEXT {}
 .CONTINUE {}
 .COPY {}
 .CR {}
@@ -200,6 +201,7 @@
 .HANDLES {}
 .HARDWARE {}
 .HAVING {}
+.HEADER {}
 .HELP {}
 .HEX {}
 .HIDE {}
@@ -412,9 +414,11 @@
 .RENDER {}
 .REPAIR {}
 .REPORT {}
+.REQUEST {}
 .RESET {}
 .RESTART {}
 .RESTORE {}
+.RESPONSE {}
 .RESUME {}
 .RETURN {}
 .RIGHT {}
