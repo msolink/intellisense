@@ -230,6 +230,7 @@
 .LOAD {}
 .LOCATE {}
 .LOCATION {}
+.LOCK {}
 .LOG {}
 .LONG {}
 .LOOP {}
@@ -310,6 +311,8 @@
 .POST {}
 .PUBLIC {}
 .PUBLISH {}
+.PULL {}
+.PUSH {}
 .PUT {}
 .QUERY {}
 .QUIT {}
@@ -421,6 +424,7 @@
 .UNDO {}
 .UNION {}
 .UNLOAD {}
+.UNLOCK {}
 .UNTIL {}
 .UPDATE {}
 .URI {}
