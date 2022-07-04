@@ -72,6 +72,7 @@
 .COMMIT {}
 .COMPARE {}
 .COMPILE {}
+.COMPRESS {}
 .CONFIG {}
 .CONFIGURE {}
 .CONNECT {}
@@ -107,6 +108,7 @@
 .DEBUG {}
 .DEFAULT {}
 .DEFINE {}
+.DEFLATE {}
 .DELEGATE {}
 .DELETE {}
 .DEMO {}
@@ -116,6 +118,7 @@
 .DESC {}
 .DHCP {}
 .DIALOG {}
+.DIGIT {}
 .DIM {}
 .DIRECTORY {}
 .DISABLE {}
@@ -141,6 +144,7 @@
 .ELEMENT {}
 .ELSE {}
 .ELSEIF {}
+.EMAIL {}
 .ENABLE {}
 .ENCODE {}
 .ENCRYPT {}
@@ -209,10 +213,12 @@
 .IIF {}
 .IMPLEMENTS {}
 .IMPORT {}
+.IMPRESS {}
 .IN {}
 .INACTIVE {}
 .INDEX {}
 .INF {}
+.INFLATE {}
 .INFORM {}
 .INFORMATION {}
 .INHERITS {}
@@ -222,14 +228,15 @@
 .INPUT {}
 .INSERT {}
 .INSTALL {}
-.INTERFACE {}
 .INT {}
 .INT16 {}
 .INT32 {}
 .INT64 {}
 .INT8 {}
 .INTEGER {}
+.INTERFACE {}
 .INTERNAL {}
+.INTERNET {}
 .INTO {}
 .IO {}
 .IS {}
@@ -246,6 +253,7 @@
 .JOIN {}
 .KEY {}
 .KEYWORD {}
+.LATE {}
 .LEAVE {}
 .LEN {}
 .LENGTH {}
@@ -264,6 +272,7 @@
 .LIST {}
 .LANGUAGE {}
 .LOAD {}
+.LOCAL {}
 .LOCATE {}
 .LOCATION {}
 .LOCK {}
@@ -271,11 +280,13 @@
 .LONG {}
 .LOOP {}
 .LT {}
+.MAIL {}
 .MAIN {}
 .MANAGE {}
 .MANIFEST {}
 .MAP {}
 .MEMBER {}
+.MESSAGE {}
 .METHOD {}
 .MIME {}
 .MODAL {}
@@ -296,6 +307,7 @@
 .NAMESPACE {}
 .NAN {}
 .NET {}
+.NETWORK {}
 .NEVER {}
 .NEW {}
 .NEXT {}
@@ -343,6 +355,7 @@
 .PDF {}
 .PKG {}
 .PING {}
+.PRESS {}
 .PREINIT {}
 .PRELOAD {}
 .PRERENDER {}
@@ -384,7 +397,8 @@
 .REGION {}
 .REGISTER {}
 .REGISTRY {}
-.REGEX{}
+.REGEX {}
+.RELATE {}
 .RELEASE {}
 .RELOAD {}
 .REMAIN {}
@@ -399,6 +413,7 @@
 .RESUME {}
 .RETURN {}
 .RIGHT {}
+.ROLE {}
 .ROLLBACK {}
 .ROW {}
 .RUN {}
@@ -424,7 +439,9 @@
 .SHUTDOWN {}
 .SINGLE {}
 .SIZE {}
+.SMTP {}
 .SNK {}
+.SNMP {}
 .SOCKET {}
 .SOFTWARE {}
 .SOLUTION {}
@@ -450,6 +467,8 @@
 .SYS {}
 .SYSTEM {}
 .TAB {}
+.TAR {}
+.TARGET {}
 .TELNET {}
 .TERMINAL {}
 .TEST {}
@@ -462,11 +481,13 @@
 .THROWS {}
 .TIME {}
 .TITLE {}
+.TOKEN {}
 .TOP {}
 .TOTAL {}
 .TRANSACTION {}
-.TTL {}
 .TRY {}
+.TTL {}
+.TXT {}
 .TYPE {}
 .TYPEOF {}
 .UINT16 {}
@@ -516,6 +537,7 @@
 .WRITE {}
 .WRITEONLY {}
 .WWW {}
+.XAML {}
 .XSL {}
 .XML {}
 .XOR {}
