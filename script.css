@@ -37,6 +37,7 @@
 .BASE {}
 .BEGIN {}
 .BETA {}
+.BIG {}
 .BIN {}
 .BINARY {}
 .BLOCK {}
@@ -258,6 +259,7 @@
 .JOIN {}
 .KEY {}
 .KEYWORD {}
+.LARGE {}
 .LATE {}
 .LEAVE {}
 .LEN {}
@@ -292,9 +294,11 @@
 .MANAGE {}
 .MANIFEST {}
 .MAP {}
+.MEDIUM {}
 .MEMBER {}
 .MESSAGE {}
 .METHOD {}
+.MIDDLE {}
 .MIME {}
 .MODAL {}
 .MODE {}
@@ -450,6 +454,7 @@
 .SHUTDOWN {}
 .SINGLE {}
 .SIZE {}
+.SMALL {}
 .SMTP {}
 .SNK {}
 .SNMP {}
@@ -492,6 +497,7 @@
 .THROW {}
 .THROWS {}
 .TIME {}
+.TINY {}
 .TITLE {}
 .TOKEN {}
 .TOP {}
