@@ -326,10 +326,10 @@
 .REFRESH {}
 .REG {}
 .REG_BINARY {}
-.REG_DWORD {--d:32-Bit;}
+.REG_DWORD {--d:"32-Bit";}
 .REG_EXPAND_SZ {--d:Expandable String;}
 .REG_MULTI_SZ {--d:Multiple String;}
-.REG_QWORD {--d:64-Bit;}
+.REG_QWORD {--d:"64-Bit";}
 .REG_SZ {--d:String;}
 .REGISTER {}
 .REGISTRY {}
