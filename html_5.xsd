@@ -14,9 +14,16 @@
 			vs:customattrprefix="data-"
 >
 <!--
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Packages\Schemas\html
 C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\Packages\schemas\html\html_5.xsd
 https://raw.githubusercontent.com/Kotlin/kotlinx.html/master/buildSrc/src/main/resources/html_5.xsd
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+https://bitbucket.org/kashbridge/dtd/src/master/
+https://bitbucket.org/kashbridge/dtd/src/master/html5.dtd
+http://sgmljs.net/docs/w3c-html51-dtd.html
+https://html.spec.whatwg.org/multipage/syntax.html#the-doctype
+https://github.com/mfreed7/declarative-shadow-dom/blob/master/README.md#syntax
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
 
 
 		Warning:                                                                                    
@@ -136,6 +143,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 		<xsd:attribute name="lang" type="i18LanguageCode" />
 		<xsd:attribute name="itemprop" />
 		<xsd:attribute name="role" />
+		<xsd:attribute name="slot" />
 		<xsd:attribute name="spellcheck" vs:standalone="true">
 			<xsd:simpleType>
 				<xsd:restriction base="xsd:NMTOKEN">
@@ -255,7 +263,8 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 			<xsd:element ref="noscript" />
 			<xsd:element ref="script" />
 			<xsd:element ref="style" />
-			<xsd:element ref="title" minOccurs="1" maxOccurs="1" />
+			<xsd:element ref="title" minOccurs="1" maxOccurs="1" /> 
+			<xsd:element ref="template" />
 		</xsd:choice>
 	</xsd:group>
 
@@ -359,7 +368,10 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 			<xsd:element ref="sup" />
 			<xsd:element ref="svg" />
 
+
 			<xsd:element ref="table" />
+			<xsd:element ref="template" />
+			<xsd:element ref="slot" />
 			<xsd:element ref="textarea" />
 			<xsd:element ref="time" />
 
@@ -457,6 +469,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 			<xsd:element ref="sup" />
 			<xsd:element ref="svg" />
 
+
+			<xsd:element ref="template" />
+			
 			<xsd:element ref="textarea" />
 			<xsd:element ref="time" />
 
@@ -732,6 +747,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 				<xsd:element ref="h4" />
 				<xsd:element ref="h5" />
 				<xsd:element ref="h6" />
+				<xsd:element ref="template" />
 			</xsd:choice>
 			<xsd:attributeGroup ref="commonAttributeGroup" />
 		</xsd:complexType>
@@ -761,6 +777,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 			<xsd:choice>
 				<xsd:element ref="dd" />
 				<xsd:element ref="dt" />
+				<xsd:element ref="template" />
 			</xsd:choice>
 			<xsd:attributeGroup ref="commonAttributeGroup" />
 		</xsd:complexType>
@@ -780,6 +797,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 		<xsd:complexType>
 			<xsd:choice>
 				<xsd:element ref="li" />
+				<xsd:element ref="template" />
 			</xsd:choice>
 			<xsd:attributeGroup ref="commonAttributeGroup" />
 			<xsd:attribute name="start" />
@@ -797,6 +815,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 		<xsd:complexType>
 			<xsd:choice>
 				<xsd:element ref="li" />
+				<xsd:element ref="template" />
 			</xsd:choice>
 			<xsd:attributeGroup ref="commonAttributeGroup" />
 		</xsd:complexType>
@@ -1021,6 +1040,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 					</xsd:restriction>
 				</xsd:simpleType>
 			</xsd:attribute>
+			<xsd:attribute name="crossorigin" type="crossOrigin" />
 		</xsd:complexType>
 	</xsd:element>
 
@@ -1074,6 +1094,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 		<xsd:complexType mixed="true">
 			<xsd:choice>
 				<xsd:element ref="param" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="template" />
 			</xsd:choice>
 			<xsd:attributeGroup ref="commonAttributeGroup" />
 			<xsd:attribute name="data" type="xsd:anyURI" />
@@ -1192,7 +1213,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 
 	<xsd:element name="div" type="simpleFlowContentElement" />
 
-	<xsd:element name="main" type="simpleFlowContentElement" />
+	<xsd:element name="main" type="simpleFlowContentElement" vs:disallowedancestor="article aside footer header nav" />
 	
 	<!--=================== Interactive content =======================================-->
 
@@ -1205,13 +1226,26 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 		</xsd:complexType>
 	</xsd:element>
 
+	<xsd:element name="track">
+		<xsd:complexType>
+			<xsd:attributeGroup ref="commonAttributeGroup" />
+			<xsd:attribute name="kind" type="trackKindType" />
+			<xsd:attribute name="src" type="xsd:anyURI" />
+			<xsd:attribute name="srclang" type="i18LanguageCode" />
+			<xsd:attribute name="label" />
+			<xsd:attribute name="default" vs:standalone="true" />
+		</xsd:complexType>
+	</xsd:element>
+	
 	<xsd:element name="audio" vs:contentmodel="transparent" vs:disallowedancestor="audio video button">
 		<xsd:complexType mixed="true">
 			<xsd:choice>
 				<xsd:element ref="source" vs:requiredattribute="src" />
+				<xsd:element ref="track" />
 			</xsd:choice>
 			<xsd:attributeGroup ref="commonAttributeGroup" />
 			<xsd:attributeGroup ref="mediaAttributeGroup"/>
+			<xsd:attribute name="crossorigin" type="crossOrigin" />
 		</xsd:complexType>
 	</xsd:element>
 
@@ -1225,6 +1259,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 			<xsd:attribute name="poster" />
 			<xsd:attribute name="width" />
 			<xsd:attribute name="height" />
+			<xsd:attribute name="crossorigin" type="crossOrigin" />
 		</xsd:complexType>
 	</xsd:element>
 
@@ -1714,6 +1749,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 				<xsd:element ref="tfoot" minOccurs="0" maxOccurs="1" />
 				<xsd:element ref="tbody" />
 				<xsd:element ref="tr" />
+				<xsd:element ref="template" />
 			</xsd:choice>
 			<xsd:attributeGroup ref="commonAttributeGroup" />
 			<xsd:attribute name="summary" />
@@ -1758,6 +1794,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 		<xsd:complexType>
 			<xsd:choice>
 				<xsd:element ref="tr" />
+				<xsd:element ref="template" />
 			</xsd:choice>
 			<xsd:attributeGroup ref="commonAttributeGroup" />
 		</xsd:complexType>
@@ -1767,6 +1804,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 		<xsd:complexType>
 			<xsd:choice>
 				<xsd:element ref="tr" />
+				<xsd:element ref="template" />
 			</xsd:choice>
 			<xsd:attributeGroup ref="commonAttributeGroup" />
 		</xsd:complexType>
@@ -1776,6 +1814,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 		<xsd:complexType>
 			<xsd:choice>
 				<xsd:element ref="tr" />
+				<xsd:element ref="template" />
 			</xsd:choice>
 			<xsd:attributeGroup ref="commonAttributeGroup" />
 		</xsd:complexType>
@@ -1786,6 +1825,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 			<xsd:choice>
 				<xsd:element ref="th" vs:disallowedancestor="tbody tfoot" />
 				<xsd:element ref="td" />
+				<xsd:element ref="template" />
 			</xsd:choice>
 			<xsd:attributeGroup ref="commonAttributeGroup" />
 		</xsd:complexType>
@@ -1825,6 +1865,42 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 		</xsd:complexType>
 	</xsd:element>
 
+	<xsd:element name="template" vs:implicitclosure="true" vs:contentmodel="transparent" >
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:group ref="flowContent" />
+				<xsd:element ref="slot" />
+			</xsd:choice>
+			<xsd:attributeGroup ref="commonAttributeGroup" />
+			<xsd:attribute name="shadowhost" />
+			<xsd:attribute name="shadowroot">
+				<xsd:simpleType>
+					<xsd:union>
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:NMTOKEN">
+							<xsd:enumeration value="open" />
+							<xsd:enumeration value="closed" /> 
+							</xsd:restriction>
+						</xsd:simpleType>
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string" />
+						</xsd:simpleType>
+					</xsd:union>
+				</xsd:simpleType>
+			</xsd:attribute>
+			
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="slot" vs:implicitclosure="true" vs:contentmodel="transparent">
+		<xsd:complexType mixed="true">
+			<xsd:choice>
+				<xsd:group ref="flowContent" />
+			</xsd:choice>
+			<xsd:attributeGroup ref="commonAttributeGroup" /> 
+		</xsd:complexType>
+	</xsd:element>
+	
 	<!-- XDR datatype derivations -->
 	<xsd:simpleType name="i2">
 		<xsd:restriction base="xsd:integer">
