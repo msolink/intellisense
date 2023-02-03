@@ -16,6 +16,8 @@
 <!--
 C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\Packages\schemas\html\html_5.xsd
 https://raw.githubusercontent.com/Kotlin/kotlinx.html/master/buildSrc/src/main/resources/html_5.xsd
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+
 
 		Warning:                                                                                    
 		Warning: 
@@ -320,7 +322,7 @@ https://raw.githubusercontent.com/Kotlin/kotlinx.html/master/buildSrc/src/main/r
 			<xsd:element ref="link" vs:requiredattribute="itemprop" />
 
 
-            <xsd:element ref="main"/>
+            <xsd:element ref="main" minOccurs="0" maxOccurs="1"/>
 			<xsd:element ref="map" />
 			<xsd:element ref="mark" />
             <xsd:element ref="math"/> 
@@ -560,15 +562,7 @@ https://raw.githubusercontent.com/Kotlin/kotlinx.html/master/buildSrc/src/main/r
 			<xsd:attribute name="media" type="mediaType" default="screen" />
 			<xsd:attribute name="type" type="contentType" vs:readonly="true" />
 			<xsd:attribute name="sizes" />
-			<xsd:attribute name="crossorigin" >
-				<xsd:simpleType>
-					<xsd:restriction base="xsd:NMTOKEN">
-						<xsd:enumeration value="anonymous" />
-						<xsd:enumeration value="same-origin" />
-						<xsd:enumeration value="use-credentials" />
-					</xsd:restriction>
-				</xsd:simpleType>
-			</xsd:attribute>
+			<xsd:attributeGroup ref="crossOriginGroup" /> 
 			
 		</xsd:complexType>
 	</xsd:element>
@@ -626,6 +620,7 @@ https://raw.githubusercontent.com/Kotlin/kotlinx.html/master/buildSrc/src/main/r
 					</xsd:restriction>
 				</xsd:simpleType>
 			</xsd:attribute>
+			
 		</xsd:complexType>
 	</xsd:element>
 
@@ -668,6 +663,8 @@ https://raw.githubusercontent.com/Kotlin/kotlinx.html/master/buildSrc/src/main/r
 					</xsd:restriction>
 				</xsd:simpleType>
 			</xsd:attribute>
+			<xsd:attributeGroup ref="crossOriginGroup" /> 
+			
 		</xsd:complexType>
 	</xsd:element>
 
@@ -685,6 +682,7 @@ https://raw.githubusercontent.com/Kotlin/kotlinx.html/master/buildSrc/src/main/r
 		<xsd:complexType>
 			<xsd:choice>
 				<xsd:group ref="flowContent" />
+                <xsd:element ref="main" minOccurs="0" maxOccurs="1" />
 			</xsd:choice>
 			<xsd:attributeGroup ref="commonAttributeGroup" />
 			<xsd:attribute name="onafterprint" vs:omtype="event" />
@@ -1828,7 +1826,26 @@ https://raw.githubusercontent.com/Kotlin/kotlinx.html/master/buildSrc/src/main/r
 	</xsd:element>
 
 	<!-- XDR datatype derivations -->
+	<xsd:simpleType name="i2">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive Value="-32768" />
+			<xsd:maxInclusive Value="32767" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ui4">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:minInclusive Value="0" />
+			<xsd:maxInclusive Value="4294967295" />
+		</xsd:restriction>
+	</xsd:simpleType>
 
+	<xsd:simpleType name="positiveInteger">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:minInclusive Value="1" />
+			<xsd:maxInclusive Value="4294967295" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
 	<xsd:simpleType name="mediaType">
 		<xsd:union>
 			<xsd:simpleType>
@@ -1876,7 +1893,128 @@ https://raw.githubusercontent.com/Kotlin/kotlinx.html/master/buildSrc/src/main/r
 			</xsd:simpleType>
 		</xsd:union>
 	</xsd:simpleType>
+	
 
+		
+<xsd:simpleType name="crossOrigin">
+	<xsd:union>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:NMTOKEN">
+				<xsd:enumeration value="anonymous" />
+				<xsd:enumeration value="same-origin" />
+				<xsd:enumeration value="use-credentials" />
+			</xsd:restriction>
+		</xsd:simpleType>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string" />
+		</xsd:simpleType>
+	</xsd:union>
+</xsd:simpleType>
+ 
+			
+<xsd:attributeGroup name="crossOriginGroup">
+	<xsd:attribute name="crossorigin" type="crossOrigin" />
+	<xsd:attribute name="integrity" type="xsd:string" />
+</xsd:attributeGroup>
+
+	
+	
+<xsd:simpleType name="frameTarget">
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="_blank" />
+			<xsd:enumeration value="_parent" />
+			<xsd:enumeration value="_search" />
+			<xsd:enumeration value="_self" />
+			<xsd:enumeration value="_top" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="shapeType">
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="rect" />
+			<xsd:enumeration value="circle" />
+			<xsd:enumeration value="poly" />
+			<xsd:enumeration value="default" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+
+
+	<xsd:simpleType name="imgAlignType">
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="top" />
+			<xsd:enumeration value="middle" />
+			<xsd:enumeration value="bottom" />
+			<xsd:enumeration value="left" />
+			<xsd:enumeration value="right" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="textAlignType">
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="left" />
+			<xsd:enumeration value="center" />
+			<xsd:enumeration value="right" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	
+	<xsd:attributeGroup name="cellHAlignTypeAttributes">
+		<xsd:attribute name="Align">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:NMTOKEN">
+					<xsd:enumeration value="left" />
+					<xsd:enumeration value="center" />
+					<xsd:enumeration value="right" />
+					<xsd:enumeration value="justify" />
+					<xsd:enumeration value="char" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="Char" />
+		<xsd:attribute name="CharOff" />
+	</xsd:attributeGroup>
+
+	<xsd:attributeGroup name="cellVAlignTypeAttributes">
+		<xsd:attribute name="valign">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:NMTOKEN">
+					<xsd:enumeration value="top" />
+					<xsd:enumeration value="middle" />
+					<xsd:enumeration value="bottom" />
+					<xsd:enumeration value="baseline" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	
+	
+	<xsd:simpleType name="disabledType">
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="disabled" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="readonlyType">
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="readonly" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="compactType">
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="compact" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="nowrapType">
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="nowrap" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	
+	
 	<xsd:simpleType name="browsingContext">
 		<xsd:union>
 			<xsd:simpleType>
