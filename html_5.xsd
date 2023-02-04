@@ -14,7 +14,7 @@
 			vs:customattrprefix="data-"
 >
 <!--
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Packages\Schemas\html
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Packages\Schemas\html\html_5.xsd
 C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\Packages\schemas\html\html_5.xsd
 https://raw.githubusercontent.com/Kotlin/kotlinx.html/master/buildSrc/src/main/resources/html_5.xsd
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element
@@ -901,10 +901,10 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
 	<xsd:element name="sup" type="simplePhrasingContentElement" />
 	<xsd:element name="i" type="simplePhrasingContentElement" />
 	<xsd:element name="b" type="simplePhrasingContentElement" />
-    <xsd:element name="main" type="simplePhrasingContentElement"/>
 	<xsd:element name="mark" type="simplePhrasingContentElement" />
     <xsd:element name="math" type="simplePhrasingContentElement"/>
-
+	
+	
 	<xsd:element name="progress" vs:disallowedancestor="progress">
 		<xsd:complexType mixed="true">
 			<xsd:choice>
@@ -1721,12 +1721,6 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
 			<xsd:attribute name="rel" type="linkType" />
 			<xsd:attribute name="ping" />
 			<xsd:attribute name="type" />
-		</xsd:complexType>
-	</xsd:element>
-
-	<xsd:element name="math">
-		<xsd:complexType>
-			<xsd:attributeGroup ref="commonAttributeGroup" />
 		</xsd:complexType>
 	</xsd:element>
 
